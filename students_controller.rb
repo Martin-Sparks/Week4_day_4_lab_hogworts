@@ -11,13 +11,32 @@ also_reload('./models/*')
         erb(:index)
     end 
 
+
+    # new
+
+    get '/students/new' do
+        erb(:new)
+    end 
+
 # show
 
-# new
+    get '/students/:id' do
+        @students = Student.find (params[:id])
+        erb(:show)
+    end
 
 # create
 
+    post '/students' do # create
+        @order = Student.new( params )
+        @order.save()
+        erb( :create )
+    end
+
+
 # edit
+
+    
 
 # update
 
